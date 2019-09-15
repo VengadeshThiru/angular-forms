@@ -1,0 +1,19 @@
+CREATE NEW -- > ng new <project name>
+COMPILE ON HOST --> ng serve --host=<host name> --poll=1000 --port<port name>
+
+
+
+GIT REPOCETORY --> 
+
+	git init
+	git remote add origin <url>
+	git add .
+	git pull origin master
+
+	git status
+	
+	git git checkout .	
+	
+	git add .
+	git commit -m "unique name"
+	git push origin master
