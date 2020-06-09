@@ -1,0 +1,85 @@
+<!-- <mat-radio-group class="example-radio-group" [(ngModel)]="helloe.favoriteSeason">
+  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season" (click)="hello()">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+<div class="example-selected-value">Your favorite season is: {{helloe.favoriteSeason}}</div>
+ -->
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+
+<form #hip="ngForm"(ngSubmit)="onFormSubmit()">
+	<label>Name</label>
+	<br>
+	<input id="name" name="name" class="form-control"
+      required minlength="4" appForbiddenName="bob"
+      [(ngModel)]="hero.name" #name="ngModel" >
+
+	<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+		<div *ngIf="name.errors.required">
+			Name is required.
+		</div>
+		<div *ngIf="name.errors.minlength">
+			Name must be at least 4 characters long.
+		</div>
+		<div *ngIf="name.errors.forbiddenName">
+			Name cannot be Bob.
+		</div>
+
+	</div>
+	<br>
+	<label>Email</label><br>
+	<input id="email" name="email" class="form-control"
+      required minlength="4" appForbiddenName="bob"
+      [(ngModel)]="hero.email" #email="ngModel" pattern="[^@]+@[^\.]+\..+" >
+
+	<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+		<div *ngIf="email.errors.required">
+			emal is required.
+		</div>
+
+		<div *ngIf="email.errors.pattern">
+			plz enter valid
+		</div>
+
+	</div>
+
+	<br>
+<br>
+
+   <input type="radio" value="male" name="gender" [(ngModel)]="hero.gender" required #genderControl="ngModel"> Male
+   <input type="radio" value="female" name="gender" [(ngModel)]="hero.gender" required> Female
+   <br>
+<select class="form-control" ng-model="selectedName" ng-options="employee.id as employee.name for employee in employees">
+
+            <option value="0" selected="selected">Name1</option>
+
+            <option value="1">Name2</option>
+
+            <option value="2">Name3</option>
+
+</select>
+
+<br>
+<br>
+<select ng-options="item as item.Description for item in default.items track by item.Id" ng-model="hero.selectedItem">
+      <option value="">Select</option>
+            <option value="">gg</option>
+                  <option value="">gg</option>
+
+
+    </select>
+    <br>
+    <br>
+
+<br>
+<br>
+
+    
+	<button type="submit" (click)="hello()" [disabled]="!hip.valid">Submit</button>
+</form>
